@@ -29,9 +29,7 @@ const useStyles = makeStyles(theme => ({
     width: "50%",
     margin: "auto",
   },
-  links:{
-    textDecoration: 'none',
-  }
+
 
 }));
 
