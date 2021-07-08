@@ -8,7 +8,7 @@ const AllCampusesView = (props) => {
       <div>
         <div className="pageLinks">
                 <Link to="/"> Home</Link>
-                <Link to="/campuses">Campuses</Link>
+                <Link to="/students">Students</Link>
         </div>
 
         <div className= "none">There are no campuses.</div>
