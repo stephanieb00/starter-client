@@ -8,7 +8,7 @@ const AllCampusesView = (props) => {
       <div>
         <div className="pageLinks">
                 <Link to="/"> Home</Link>
-                <Link to="/campuses">Campuses</Link>
+                <Link to="/students">Students</Link>
         </div>
 
         <div className= "none">There are no campuses.</div>
@@ -30,7 +30,6 @@ const AllCampusesView = (props) => {
             <h1>{campus.name}</h1>
           </Link>
           <img classname="objectImage"src={campus.imageUrl}  alt={campus.name} />
-          <p>{campus.description}</p>
         </div>
       ))}
     </div>

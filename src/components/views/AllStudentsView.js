@@ -27,10 +27,6 @@ const  AllStudentsView = (props) => {
           <Link to={`/student/${student.id}`}>
             <h1>{student.firstname} {student.lastname}</h1>
           </Link>
-          <img classname="objectImage"src={student.imageUrl}  alt={student.firstname} />
-          <p>{student.description}</p>
-          <p>GPA: {student.gpa}</p>
-
           <button onClick={() => props.handleDelete(student.id)}>Delete</button>
         </div>
       ))}
