@@ -30,7 +30,6 @@ const AllCampusesView = (props) => {
             <h1>{campus.name}</h1>
           </Link>
           <img classname="objectImage"src={campus.imageUrl}  alt={campus.name} />
-          <p>{campus.description}</p>
         </div>
       ))}
     </div>
