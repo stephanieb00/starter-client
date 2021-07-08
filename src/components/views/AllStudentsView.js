@@ -25,7 +25,7 @@ const  AllStudentsView = (props) => {
         {props.allStudents.map((student) => (
         <div key={student.id} className="container">
           <Link to={`/student/${student.id}`}>
-            <h1>{student.firstname} {student.lastname}</h1>
+            <h3>{student.firstname} {student.lastname}</h3>
           </Link>
           <button onClick={() => props.handleDelete(student.id)}>Delete</button>
         </div>
