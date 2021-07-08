@@ -21,13 +21,13 @@ const AllCampusesView = (props) => {
 
       <div className="pageLinks">
             <Link to="/"> Home</Link>
-            <Link to="/campuses">Campuses</Link>
+            <Link to="/students">Students</Link>
       </div>
 
       {props.allCampuses.map((campus) => (
         <div key={campus.id} className="container">
           <Link to={`/campus/${campus.id}`}>
-            <h1>{campus.name}</h1>
+            <h3>{campus.name}</h3>
           </Link>
           <img classname="objectImage"src={campus.imageUrl}  alt={campus.name} />
         </div>
