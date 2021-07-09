@@ -4,7 +4,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
-
 import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
@@ -46,7 +45,8 @@ const useStyles = makeStyles(theme => ({
 
 const AllCampusesView = (props) => {
   const classes = useStyles();
-  if (!props.allCampuses.length) {
+  const {campuses, deleteCampus} = props;
+  if (!props.campuses.length) {
     return(
       <div className={classes.root}>
         <AppBar position="static" elevation={0} className={classes.appBar}>
@@ -103,20 +103,19 @@ const AllCampusesView = (props) => {
           <button  className={classes.button} >Add New Campus</button>
         </Link>
 
-      {props.allCampuses.map((campus) => (
+      {props.campuses.map((campus) => (
         <div key={campus.id} className="container">
           <Link to={`/campus/${campus.id}`}>
             <h3>{campus.name}</h3>
           </Link>
-          <img className={classes.image}src={campus.imageUrl}  alt={campus.name}/>
+          <img className={classes.image} src={campus.imageUrl}  alt={campus.name} />
+          <button className={classes.button} onClick={() => deleteCampus(campus.id)}>Delete</button>
         </div>
+
       ))}
     </div>
   );
 };
 
-AllCampusesView.propTypes = {
-  allCampuses: PropTypes.array.isRequired,
-};
 
 export default AllCampusesView;
