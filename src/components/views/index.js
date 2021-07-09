@@ -5,3 +5,4 @@ export { default as StudentView } from "./StudentView";
 export { default as CampusView } from "./CampusView";
 export { default as HomePageView } from "./HomePageView";
 export { default as NewStudentView } from "./NewStudentView";
+export { default as NewCampusView } from "./NewCampusView";

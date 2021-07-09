@@ -1,9 +1,6 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import { 
-  fetchAllStudentsThunk,
-  deleteStudentThunk
-} from '../../store/thunks';
+import { fetchAllStudentsThunk, deleteStudentThunk } from '../../store/thunks';
 import AllStudentsView from '../views/AllStudentsView';
 
 class AllStudentsContainer extends Component {
