@@ -1,11 +1,10 @@
-import { Component } from "react";
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { fetchAllStudentsThunk } from "../../store/thunks";
-import { AllStudentsView } from "../views";
-import { addStudentThunk } from "../../store/thunks";
-import { deleteStudentThunk } from "../../store/thunks";;
-
+import { Component } from 'react';
+import { connect } from 'react-redux';
+import { 
+  fetchAllStudentsThunk,
+  deleteStudentThunk
+} from '../../store/thunks';
+import AllStudentsView from '../views/AllStudentsView';
 
 class AllStudentsContainer extends Component {
   componentDidMount() {
@@ -13,42 +12,12 @@ class AllStudentsContainer extends Component {
     this.props.fetchAllStudents();
   }
 
-  //Handle Event Submit
-  handleSubmit(e){
-    e.preventDefault();
-
-    const firstname = e.target.firstname.value;
-    const lastname = e.target.lastname.value;
-    const email = e.target.email.value;
-    const imageUrl = e.target.imageUrl.value;
-    const gpa = e.target.gpa.value;
-
-    let addedStudent = {
-      firstname: firstname,
-      lastname:lastname,
-      email: email,
-      imageUrl: imageUrl,
-      gpa: gpa,
-    };
-
-    this.props.addStudent(addedStudent);
-    e.target.reset(); // so it could change.
-
-  }
-
-   //Handle Event Delete
-
-   //we get this from the thunks.js file.
-   handleDelete(studentId){
-    this.props.deleteStudent(studentId);
-   }
-
   render() {
     return (
       <div id = "allStudentsView">
         <AllStudentsView
-          allStudents={this.props.allStudents}
-          handleDelete={this.props.handleDelete}
+          students={this.props.allStudents}
+          deleteStudent={this.props.deleteStudent}
         />
       </div>
     );
@@ -66,15 +35,8 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     fetchAllStudents: () => dispatch(fetchAllStudentsThunk()),
-    addStudent: (student) => dispatch(addStudentThunk(student)),
     deleteStudent: (studentId) => dispatch(deleteStudentThunk(studentId)),
   };
-};
-
-// Type check props;
-AllStudentsContainer.propTypes = {
-  allStudents: PropTypes.array.isRequired,
-  fetchAllStudents: PropTypes.func.isRequired,
 };
 
 // Export our store-connected container by default;

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 const StudentView = (props) => {
     const {student} = props;
-    let campus = student.campus
 
     return(
         <div>
@@ -17,7 +16,9 @@ const StudentView = (props) => {
                 <img classname="objectImage" src={student.imageUrl} />
                 <p>GPA: {student.gpa}</p>
                 <p>{student.email}</p>
-                <Link to={`/campus/${student.campus.id}`}>{student.campus.name}</Link>
+                <Link to={`/campus/${student.campusId}`}>
+                    <p>{student.campusId ? `Campus: ${student.campus.name}`  : "Not attending any school"}</p>
+                </Link>
             </div>
         </div>
     );

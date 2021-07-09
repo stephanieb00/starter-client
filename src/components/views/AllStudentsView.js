@@ -1,41 +1,50 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
+
 const  AllStudentsView = (props) => {
-  if (!props.allStudents.length) {
-    return( 
+    const {students, deleteStudent} = props;
+    if (!students.length) {
+        return( 
+            <div>
+                <div className="pageLinks">
+                    <Link to="/"> Home</Link>
+                    <Link to="/campuses">Campuses</Link>
+                </div>
+
+                <div className= "none"> There are no students.</div>
+                <Link to={`student/new`}>
+                    <button>Add New Student</button>
+                </Link>
+            </div>
+        );
+    }
+
+    return (
         <div>
             <div className="pageLinks">
                 <Link to="/"> Home</Link>
                 <Link to="/campuses">Campuses</Link>
             </div>
 
-            <div className= "none"> There are no students.</div>
+            <Link to={`/newstudent`}>
+                <button>Add New Student</button>
+            </Link>
+            
+            {students.map((student) => {
+                let name = student.firstname + " " + student.lastname;
+                return (
+                <div key={student.id} className="container">
+                    <Link to={`/student/${student.id}`}>
+                        <h1>{name}</h1>
+                    </Link>
+                    <button onClick={() => deleteStudent(student.id)}>Delete</button>
+                </div>
+                );
+            }
+            )}
         </div>
     );
-  }
+    };
 
-  return (
-    <div>
-        <div className="pageLinks">
-            <Link to="/"> Home</Link>
-            <Link to="/campuses">Campuses</Link>
-        </div>
-
-        {props.allStudents.map((student) => (
-        <div key={student.id} className="container">
-          <Link to={`/student/${student.id}`}>
-            <h3>{student.firstname} {student.lastname}</h3>
-          </Link>
-          <button onClick={() => props.handleDelete(student.id)}>Delete</button>
-        </div>
-      ))}
-    </div>
-  );
-};
-
-AllStudentsView.propTypes = {
-    allStudents: PropTypes.array.isRequired,
-};
-  
 export default AllStudentsView;
