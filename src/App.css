@@ -1,8 +1,8 @@
 .App {
-  background-color: #fcb6bb;
+  background-image: linear-gradient(#E13D00,#EB6060);
   min-height: 100vh;
 }
 
 .App-link {
-  color: #61dafb;
+  color: #FFA384;
 }
