@@ -18,12 +18,17 @@ class StudentContainer extends Component {
       this.props.deleteStudent(studentId);
   }
 
+  reload = async () => {
+    await this.props.fetchStudent(this.props.match.params.id);
+  }
+
   render(){
     return(
       <StudentView 
         student={this.props.student}
         allCampuses={this.props.allCampuses}
         handleDelete={this.handleDelete}
+        reload={this.reload}
       />
     );
   }
