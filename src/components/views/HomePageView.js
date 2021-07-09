@@ -16,19 +16,25 @@ const useStyles = makeStyles(theme => ({
     fontType: 'bold',
     fontFamily: 'Courier, sans-serif', 
     fontSize: '35px', 
-    color: '#CDDC39'
+    color: '#CDDC39',
   },
   appBar:{
-    backgroundColor: '#11153e',
+    backgroundColor:'#2B7D6B',
     shadows: ['none'],
   },
   greeting:{
     display: 'flex',
     justifyContent: 'center',
-    backgroundColor: 'white',
+    backgroundColor:'#2B7D6B',
     width: "50%",
     margin: "auto",
   },
+  button:{
+    backgroundColor:'#87ACA3',
+    marginRight: '10px',
+    color:'#0C1446',
+    textDecorationThickness:'4px',
+  }
 
 
 }));
@@ -44,13 +50,13 @@ const HomePageView = () => {
           </Typography>
 
           <Link className={classes.links} to={'/campuses'} >
-            <Button variant="contained" color="primary" style={{marginRight: '10px'}}>
+            <Button variant="contained" className={classes.button}>
               All Campuses
             </Button>
           </Link>
 
           <Link className={classes.links} to={'/students'} >
-            <Button variant="contained" color="primary">
+            <Button className={classes.button} variant="contained">
               All Students
             </Button>
           </Link>
