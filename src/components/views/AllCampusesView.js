@@ -1,9 +1,9 @@
-import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 
 const AllCampusesView = (props) => {
-  if (!props.allCampuses.length) {
+  const {campuses, deleteCampus} = props;
+  if (!props.campuses.length) {
     return(
       <div>
         <div className="pageLinks">
@@ -24,20 +24,23 @@ const AllCampusesView = (props) => {
             <Link to="/students">Students</Link>
       </div>
 
-      {props.allCampuses.map((campus) => (
+      <Link to={`/newcampus`}>
+        <button>Add New Campus</button>
+      </Link>
+
+      {props.campuses.map((campus) => (
         <div key={campus.id} className="container">
           <Link to={`/campus/${campus.id}`}>
             <h3>{campus.name}</h3>
           </Link>
           <img classname="objectImage"src={campus.imageUrl}  alt={campus.name} />
+          <button onClick={() => deleteCampus(campus.id)}>Delete</button>
         </div>
+
       ))}
     </div>
   );
 };
 
-AllCampusesView.propTypes = {
-  allCampuses: PropTypes.array.isRequired,
-};
 
 export default AllCampusesView;
