@@ -1,5 +1,4 @@
 import AppBar from '@material-ui/core/AppBar';
-import PropTypes from "prop-types";
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
@@ -78,7 +77,7 @@ const  AllStudentsView = (props) => {
                 <div className={classes.greeting}><h1>Students</h1></div>
 
                 <div className= "none"> There are no students.</div>
-                <Link to={`student/new`}>
+                <Link to={`student/newstudent`}>
                     <button>Add New Student</button>
                 </Link>
             </div>
@@ -110,7 +109,7 @@ const  AllStudentsView = (props) => {
                 <div className={classes.greeting}><h1>Students</h1></div>
 
             <Link to={`/newstudent`}>
-                <button  className={classes.button} >Add New Student</button>
+                <Button className={classes.button} >Add New Student</Button>
             </Link>
             
             {students.map((student) => {
@@ -120,7 +119,7 @@ const  AllStudentsView = (props) => {
                     <Link to={`/student/${student.id}`}>
                         <h1 className={classes.elements}>{name}</h1>
                     </Link>
-                    <button className={classes.button} onClick={() => deleteStudent(student.id)}>Delete</button>
+                    <button className={classes.button} onClick={() => deleteStudent(student.id)}>X</button>
                 </div>
                 );
             }
