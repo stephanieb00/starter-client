@@ -104,6 +104,9 @@ const CampusView = (props) => {
 
         <ul>
         {campus.students.map( student => {
+          if (!props.campuses.students.length) {
+            return(<p className={classes.lists}>{name}</p>)
+          }
           let name = student.firstname + " " + student.lastname;
           return (
             <div className="studentLink" key={student.id}>
