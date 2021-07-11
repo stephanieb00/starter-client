@@ -96,6 +96,12 @@ const CampusView = (props) => {
         </Toolbar>
       </AppBar>
 
+
+      <Link to={`/campus/${campus.id}/editcampus`}>
+        <Button  className={classes.button} >Edit Campus</Button>
+      </Link>
+
+
       <div className="container">
       <div className={classes.greeting}><h1>{campus.name}</h1></div>
         <img className={classes.images} src={campus.imageUrl} />
