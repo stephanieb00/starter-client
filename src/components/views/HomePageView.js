@@ -34,8 +34,15 @@ const useStyles = makeStyles(theme => ({
     marginRight: '10px',
     color:'#0C1446',
     textDecorationThickness:'4px',
-  }
+  },
 
+  images:{
+    width:'900px',
+    height:'50%',
+    display: 'block',
+    margin: 'auto',
+    marginTop:'50px',
+  }
 
 }));
 
@@ -64,6 +71,8 @@ const HomePageView = () => {
       </AppBar>
       
       <div className={classes.greeting}><h1>Home Page</h1></div>
+
+      <div className={classes.images}> <img src="https://www.bellevuecollege.edu/wp-content/uploads/sites/144/2020/03/graduation-cap-throw-1024x458.png"></img></div>
     </div>
   );    
 }

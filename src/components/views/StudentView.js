@@ -94,6 +94,11 @@ const StudentView = (props) => {
             </Toolbar>
             </AppBar>
 
+            <Link to={`/student/${student.id}/editstudent`}>
+                <Button  className={classes.button} >Edit Student</Button>
+            </Link>
+
+
             <div className="container">
             <div className={classes.greeting}><h1>{student.firstname} {student.lastname}</h1></div>
                 <img className={classes.images} src={student.imageUrl} />
